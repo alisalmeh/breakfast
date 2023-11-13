@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/AliSalmeh_ProjectWeek11_Breakfast_Refactor.csproj",
+                "${workspaceFolder}/AliSalmeh_ProjectWeek11_BreakfastAsync.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/AliSalmeh_ProjectWeek11_Breakfast_Refactor.csproj",
+                "${workspaceFolder}/AliSalmeh_ProjectWeek11_BreakfastAsync.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/AliSalmeh_ProjectWeek11_Breakfast_Refactor.csproj"
+                "${workspaceFolder}/AliSalmeh_ProjectWeek11_BreakfastAsync.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
