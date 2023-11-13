@@ -24,6 +24,7 @@ namespace AliSalmeh_ProjectWeek11_BreakfastAsync
             while (breakfastTaskList.Count > 0)
             {
                 var finishTask = await Task.WhenAny(breakfastTaskList);
+
                 if (finishTask == eggTask)
                 {
                     Console.WriteLine("Eggs are ready");
@@ -31,12 +32,12 @@ namespace AliSalmeh_ProjectWeek11_BreakfastAsync
                 else if (finishTask == baconTask)
                 {
                     Console.WriteLine("Bacon is ready");
-
                 }
                 else if (finishTask == toastTask)
                 {
                     Console.WriteLine("Toast is ready");
                 }
+
                 breakfastTaskList.Remove(finishTask);
             }
 
@@ -47,55 +48,66 @@ namespace AliSalmeh_ProjectWeek11_BreakfastAsync
             watch.Stop();
             Console.WriteLine(watch.ElapsedMilliseconds + "ms");
         }
+
         private static Coffee ReadyCoffee()
         {
             Console.WriteLine("Pouring coffee");
             return new Coffee();
         }
+
         private static async Task<Egg> FryEggsAsync(int howMany)
         {
             Console.WriteLine("Warming the pan");
             await Task.Delay(3000);
             return new Egg();
         }
+
         private static async Task<Bacon> FryBaconsAsync(int slices)
         {
             Console.WriteLine("Cooking first side of bacon");
             await Task.Delay(3000);
+
             for (int slice = 1; slice < slices; slice++)
             {
                 Console.WriteLine("flipping a slice number " + slice);
             }
+
             Console.WriteLine("Cooking second side of bacon");
             await Task.Delay(3000);
             return new Bacon();
         }
-        private static async Task<Toast> ToastBreaadAsync(int slices)
+
+        private static async Task<Toast> ToastBreadAsync(int slices)
         {
             for (int slice = 1; slice < slices; slice++)
             {
                 Console.WriteLine("Toasting slice number " + slice);
             }
+
             Console.WriteLine("Start toasting...");
             await Task.Delay(3000);
             Console.WriteLine("Remove toast from toaster");
             return new Toast();
         }
+
         private static void ApplyButter() => Console.WriteLine("Put butter on bread");
         private static void ApplyJam() => Console.WriteLine("Put jam on bread");
+
         private static async Task<Toast> ToastAndButterAsync(int number)
         {
-            var toastTask = await ToastBreaadAsync(number);
+            var toastTask = await ToastBreadAsync(number);
             ApplyButter();
             ApplyJam();
             return toastTask;
         }
+
         private static Juice ReadyOrangeJuice()
         {
             Console.WriteLine("Pouring orange juice");
             return new Juice();
         }
     }
+
     class Coffee { }
     class Egg { }
     class Bacon { }
